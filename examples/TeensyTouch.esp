@@ -1,0 +1,28 @@
+#include<TeensyTouch.h>
+
+TeensyTouch touch0(25,-100,touch,touchRead2);
+void setup() {
+    Serial.begin(57600);
+    Serial.println("i'm online, let's go");
+}
+
+void loop() {
+  touch0.loop();
+  
+}
+
+void touch(int pin,int val,int isTouch){
+  Serial.print(pin);
+  if (isTouch){
+     Serial.println(" touched");     
+  }else{
+     Serial.println(" release");     
+  }
+
+
+  
+}
+
+int touchRead2(int pin){
+ return touchRead(pin); 
+}
